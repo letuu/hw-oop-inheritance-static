@@ -21,6 +21,24 @@ public class FlyingBird extends Bird {
         return movementType;
     }
 
+    @Override
+    public void sleep() {
+        System.out.println("Летающие птицы спят 10 часов в сутки");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        FlyingBird that = (FlyingBird) o;
+        return Objects.equals(movementType, that.movementType);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), movementType);
+    }
 
     @Override
     public String toString() {

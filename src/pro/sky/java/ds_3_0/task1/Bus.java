@@ -25,4 +25,11 @@ public class Bus extends Transport {
             return fuelType;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Bus{" +
+                "transport=" + super.toString() +
+                '}';
+    }
 }

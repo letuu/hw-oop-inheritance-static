@@ -1,5 +1,7 @@
 package pro.sky.java.ds_3_0.task1;
 
+import java.util.Objects;
+
 public abstract class Transport {
 
     private static final String DEFAULT_STRING_VALUE = "\"Информация не указана\"";
@@ -64,6 +66,19 @@ public abstract class Transport {
     public abstract void Refill();
 
     protected abstract String checkFuelTypeOrDefault(String fuelType);
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Transport transport = (Transport) o;
+        return manufactureYear == transport.manufactureYear && maxSpeed == transport.maxSpeed && Objects.equals(brand, transport.brand) && Objects.equals(model, transport.model) && Objects.equals(manufactureCountry, transport.manufactureCountry) && Objects.equals(color, transport.color) && Objects.equals(fuelType, transport.fuelType);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(brand, model, manufactureYear, manufactureCountry, color, maxSpeed, fuelType);
+    }
 
     @Override
     public String toString() {

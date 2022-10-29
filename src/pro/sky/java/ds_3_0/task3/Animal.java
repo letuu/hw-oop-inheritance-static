@@ -20,23 +20,8 @@ public abstract class Animal {
 
     public abstract void go();
 
-    public void sleep() {
-        if (this.getClass() == Herbivore.class) {
-            System.out.println("Травоядные млекопитающие спят 9 часов в сутки");
-        }
-        if (this.getClass() == Predator.class) {
-            System.out.println("Хищники спят 12 часов в сутки");
-        }
-        if (this.getClass() == Amphibian.class) {
-            System.out.println("Земноводные спят 10 часов в сутки");
-        }
-        if (this.getClass() == FlightlessBird.class) {
-            System.out.println("Нелетающие птицы спят 8 часов в сутки");
-        }
-        if (this.getClass() == FlyingBird.class) {
-            System.out.println("Летающие птицы спят 10 часов в сутки");
-        }
-    }
+    public abstract void sleep();
+
 
     public String getName() {
         return name;

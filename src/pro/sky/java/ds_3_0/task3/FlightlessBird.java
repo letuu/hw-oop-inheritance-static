@@ -2,6 +2,8 @@ package pro.sky.java.ds_3_0.task3;
 
 import pro.sky.java.ds_3_0.task1.ValidationUtils;
 
+import java.util.Objects;
+
 public class FlightlessBird extends Bird {
 
     private final String movementType;
@@ -22,6 +24,25 @@ public class FlightlessBird extends Bird {
     @Override
     public void go() {
         System.out.println("Нелетающие птицы умеют плавать и ходить");
+    }
+
+    @Override
+    public void sleep() {
+        System.out.println("Нелетающие птицы спят 8 часов в сутки");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        FlightlessBird that = (FlightlessBird) o;
+        return Objects.equals(movementType, that.movementType);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), movementType);
     }
 
     @Override

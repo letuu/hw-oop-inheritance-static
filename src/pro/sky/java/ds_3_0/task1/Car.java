@@ -147,6 +147,20 @@ public class Car extends Transport {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Car car = (Car) o;
+        return Float.compare(car.engineVolume, engineVolume) == 0 && placesCount == car.placesCount && winterTires == car.winterTires && Objects.equals(gearBox, car.gearBox) && Objects.equals(bodyType, car.bodyType) && Objects.equals(regNumber, car.regNumber) && Objects.equals(key, car.key) && Objects.equals(insurance, car.insurance);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), engineVolume, gearBox, bodyType, regNumber, placesCount, winterTires, key, insurance);
+    }
+
+    @Override
     public String toString() {
         return "Car{" +
                 "transport=" + super.toString() + ", \n" +
